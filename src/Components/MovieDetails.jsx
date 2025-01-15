@@ -76,7 +76,7 @@ const MovieDetails = () => {
           {movieDeet ? (
             <>
               <div className='text-white mt-5'>
-                <h5>{movieDeet.Title}</h5>
+                <h1 className='text-center'>{movieDeet.Title}</h1>
                 <div>
                   <strong>Year:</strong> {movieDeet.Year}
                   <br />
