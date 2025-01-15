@@ -28,6 +28,10 @@ a:hover,
   text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff;
 }
 
+.navbar {
+  background: #171717 !important;
+}
+
 #dropdown-menu-align-responsive-1 {
   background-color: black;
   border: 1px solid white;
@@ -43,7 +47,7 @@ a:hover,
 }
 
 .dropdown-menu a:hover {
-  color: black !important;
+  color: white !important;
 }
 
 #dropdown-basic:hover,

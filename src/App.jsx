@@ -6,6 +6,9 @@ import EpiProfile from './Components/EpiProfile';
 import EpiFooter from './Components/EpiFooter';
 import EpiSettings from './Components/EpiSettings';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import TvShows from './Components/TvShows';
+import NotFound from './Components/NotFound';
+import MovieDetails from './Components/MovieDetails';
 
 function App() {
   return (
@@ -16,6 +19,9 @@ function App() {
           <Route path='/' element={<MainComponent />} />
           <Route path='/profile' element={<EpiProfile />} />
           <Route path='/settings' element={<EpiSettings />} />
+          <Route path='/tv-shows' element={<TvShows />} />
+          <Route path='*' element={<NotFound />} />
+          <Route path='/movie-details/:movieId' element={<MovieDetails />} />
         </Routes>
         <EpiFooter />
       </BrowserRouter>

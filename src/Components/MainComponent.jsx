@@ -1,12 +1,14 @@
 import { Carousel, Container, Dropdown, Row } from 'react-bootstrap';
 import CardRow from './CardRow';
 
-const MainContent = () => {
+const MainComponent = (props) => {
   return (
     <Container fluid className=' px-4 text-white'>
       <div className='d-flex justify-content-between'>
         <div className='d-flex'>
-          <h2 className='mb-4 fs-1 fw-bolder'>TV Shows</h2>
+          <h2 className='mb-4 fs-1 fw-bolder'>
+            {props.location === '/tv-shows' ? 'TvShows' : 'Home'}
+          </h2>
           <Dropdown>
             <Dropdown.Toggle
               variant='dark'
@@ -84,4 +86,4 @@ const MainContent = () => {
   );
 };
 
-export default MainContent;
+export default MainComponent;

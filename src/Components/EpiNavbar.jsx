@@ -6,12 +6,14 @@ import {
   DropdownButton,
   ButtonGroup,
 } from 'react-bootstrap';
+import { Link, useLocation } from 'react-router-dom';
 
 const EpiNavbar = () => {
+  const location = useLocation();
   return (
     <header>
       <Container fluid={true}>
-        <Navbar expand='lg'>
+        <Navbar expand='lg' bg='dark' data-bs-theme='dark'>
           <img
             src='/logo.png'
             alt='Netflix logo'
@@ -24,12 +26,26 @@ const EpiNavbar = () => {
           />
           <Navbar.Collapse id='responsive-navbar-nav'>
             <Nav className='me-auto '>
-              <Nav.Link href='#' className='text-white fw-bold'>
+              <Link
+                to='/'
+                className={
+                  location.pathname === '/'
+                    ? 'nav-link active fw-bold'
+                    : 'nav-link fw-bold'
+                }
+              >
                 Home
-              </Nav.Link>
-              <Nav.Link href='#' className='text-secondary fw-bold'>
+              </Link>
+              <Link
+                to='/tv-shows'
+                className={
+                  location.pathname === '/tv-shows'
+                    ? 'nav-link active fw-bold'
+                    : 'nav-link fw-bold'
+                }
+              >
                 TV Show
-              </Nav.Link>
+              </Link>
               <Nav.Link href='#' className='text-secondary fw-bold'>
                 Movies
               </Nav.Link>
@@ -57,13 +73,13 @@ const EpiNavbar = () => {
                   title={<i className='bi bi-person-circle icons'></i>}
                   id='dropdown-menu-align-responsive-1'
                 >
-                  <Dropdown.Item>
+                  <Link to='/profile' className='dropdown-item'>
                     <i className='bi bi-person me-1'></i>
                     Manage Profile
-                  </Dropdown.Item>
-                  <Dropdown.Item>
-                    <i className='bi bi-gear me-1'></i>Account
-                  </Dropdown.Item>
+                  </Link>
+                  <Link to='/settings' className='dropdown-item'>
+                    <i className='bi bi-gear me-1'></i> Account
+                  </Link>
                   <Dropdown.Item>
                     <i className='bi bi-info-circle me-1'></i>Help Center
                   </Dropdown.Item>
