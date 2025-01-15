@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
-import { Button, Card, Col, Container, Row } from 'react-bootstrap';
+import { Card, Col, Container, Row } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
+import MovieCard from './MovieCard';
+import MovieComments from './MovieComments';
 
 const URL = 'http://www.omdbapi.com/?apikey=a5544ab3&i=';
 
@@ -60,30 +62,7 @@ const MovieDetails = () => {
         <Col xs={12} md={6}>
           <Card className='my-4 mx-auto'>
             {movieDeet ? (
-              <>
-                <Card.Img
-                  variant='top'
-                  src={movieDeet.Poster}
-                  alt={movieDeet.Title}
-                />
-                <Card.Body>
-                  <Card.Title>{movieDeet.Title}</Card.Title>
-                  <Card.Text>
-                    <strong>Year:</strong> {movieDeet.Year}
-                    <br />
-                    <strong>Genre:</strong> {movieDeet.Genre}
-                    <br />
-                    <strong>Plot:</strong> {movieDeet.Plot}
-                  </Card.Text>
-                  <Button
-                    variant='primary'
-                    href={movieDeet.Website}
-                    target='_blank'
-                  >
-                    More Info
-                  </Button>
-                </Card.Body>
-              </>
+              <MovieCard movieDeet={movieDeet} />
             ) : (
               <Card.Body>
                 <Card.Text>Loading movie details...</Card.Text>
@@ -94,18 +73,7 @@ const MovieDetails = () => {
         <Col xs={12} md={6} className='text-white'>
           <h2 className=' text-center'>Comments</h2>
           {movieComments && movieComments.length > 0 ? (
-            movieComments.map((comment) => (
-              <div key={comment._id}>
-                <h6 className='text-center'>{comment.author}</h6>
-                <p>
-                  <strong>Commento: </strong>
-                  {comment.comment}
-                </p>
-                <p>
-                  <strong>Voto:</strong> {comment.rate}
-                </p>
-              </div>
-            ))
+            <MovieComments movieComments={movieComments} />
           ) : (
             <p className='text-center'>Nessun commento dagli utenti</p>
           )}
