@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Card, Col, Container, Row } from 'react-bootstrap';
-import { useParams } from 'react-router-dom';
-import MovieCard from './MovieCard';
+import { Link, useParams } from 'react-router-dom';
 import MovieComments from './MovieComments';
 
 const URL = 'http://www.omdbapi.com/?apikey=a5544ab3&i=';
@@ -60,18 +59,40 @@ const MovieDetails = () => {
     <Container>
       <Row className='justify-content-center'>
         <Col xs={12} md={6}>
-          <Card className='my-4 mx-auto'>
-            {movieDeet ? (
-              <MovieCard movieDeet={movieDeet} />
-            ) : (
-              <Card.Body>
-                <Card.Text>Loading movie details...</Card.Text>
-              </Card.Body>
-            )}
-          </Card>
+          {movieDeet ? (
+            <>
+              <Link to='/'>Navigate Home</Link>
+              <div className='d-flex justify-content-center mt-4'>
+                <img src={movieDeet.Poster} alt={movieDeet.Title} />
+              </div>
+            </>
+          ) : (
+            <Card.Body>
+              <Card.Text>Loading movie image...</Card.Text>
+            </Card.Body>
+          )}
         </Col>
         <Col xs={12} md={6} className='text-white'>
-          <h2 className=' text-center'>Comments</h2>
+          {movieDeet ? (
+            <>
+              <div className='text-white mt-5'>
+                <h5>{movieDeet.Title}</h5>
+                <div>
+                  <strong>Year:</strong> {movieDeet.Year}
+                  <br />
+                  <strong>Genre:</strong> {movieDeet.Genre}
+                  <br />
+                  <strong>Plot:</strong> {movieDeet.Plot}
+                </div>
+              </div>
+            </>
+          ) : (
+            <Card.Body>
+              <Card.Text>Loading movie details...</Card.Text>
+            </Card.Body>
+          )}
+
+          <h2 className=' text-center mt-4'>Comments</h2>
           {movieComments && movieComments.length > 0 ? (
             <MovieComments movieComments={movieComments} />
           ) : (
