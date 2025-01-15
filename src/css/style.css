@@ -1,0 +1,94 @@
+/* Reset*/
+html,
+body {
+  box-sizing: border-box;
+  background-color: #171717;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: #6c7571;
+  text-decoration: none;
+}
+
+a:hover,
+.footer-icon:hover {
+  color: white !important;
+}
+
+/*Header*/
+
+.navShadow:hover,
+.bi-grid:hover,
+.bi-grid-3x3:hover {
+  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff;
+}
+
+#dropdown-menu-align-responsive-1 {
+  background-color: black;
+  border: 1px solid white;
+  border-radius: 0;
+}
+
+.dropdown-menu {
+  background-color: black;
+}
+
+.dropdown-menu a {
+  color: white;
+}
+
+.dropdown-menu a:hover {
+  color: black !important;
+}
+
+#dropdown-basic:hover,
+#dropdown-menu-align-responsive-1:hover,
+#dropdown-menu-align-end:hover {
+  background-color: rgb(51, 51, 51) !important;
+}
+
+/* MainContent*/
+
+.carousel-indicators {
+  display: none;
+}
+
+.carouselImg {
+  opacity: 0.5;
+}
+
+.carouselImg:hover {
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+.carousel-control-prev {
+  justify-content: start;
+  width: 30px;
+}
+.carousel-control-next {
+  justify-content: end;
+  width: 30px;
+}
+
+.carousel-control-next span,
+.carousel-control-prev span {
+  size: 30px;
+}
+
+/* Profile*/
+
+#dropdown-menu-align-end {
+  background-color: #000000;
+  border: 1px solid white;
+  border-radius: 0;
+}
+
+.profileButtons:hover {
+  color: white !important;
+}
